@@ -1,17 +1,15 @@
 package ru.netology.web.test;
 
-import com.codeborne.selenide.Configuration;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import org.openqa.selenium.chrome.ChromeOptions;
+;
 import ru.netology.web.data.DataHelper;
 import ru.netology.web.page.DashboardPage;
 import ru.netology.web.page.LoginPage;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.concurrent.locks.Condition;
+
 
 import static com.codeborne.selenide.Selenide.open;
 import static org.junit.jupiter.api.Assertions.assertAll;
@@ -60,7 +58,7 @@ public class MoneyTransferTest {
         var amount = generateInvalidAmount(secondCardBalance);
         var transferPage = dashboardPage.selectCardToTransfer(firstCardInfo);
         transferPage.makeTransfer(String.valueOf(amount), secondCardInfo);
-        transferPage.findErrorMessage("Ошибка. На вашей карте недостаточно средств для перевода.");
+        transferPage.findErrorMessage("Ошибка. На вашей карте недостаточно средств для перевода");
         dashboardPage.reloadDashboardPage();
         var actualBalanceFirstCard = dashboardPage.getCardBalance(getMaskedNumber(firstCardInfo.getCardNumber()));
         var actualBalanceSecondCard = dashboardPage.getCardBalance(getMaskedNumber(secondCardInfo.getCardNumber()));
